@@ -6,10 +6,10 @@
 
 namespace PixelPanic
 {
-	class SplashState : public State
+	class GameOverState : public State
 	{
 	public:
-		SplashState(GameDataRef data);
+		GameOverState(GameDataRef data);
 
 		void Init();
 
@@ -19,8 +19,6 @@ namespace PixelPanic
 
 	private:
 		GameDataRef _data;
-
-		sf::Clock _clock;
 
 		std::unique_ptr<sf::Sprite> _background;
 	};

@@ -6,10 +6,10 @@
 
 namespace PixelPanic
 {
-	class SplashState : public State
+	class MainMenuState : public State
 	{
 	public:
-		SplashState(GameDataRef data);
+		MainMenuState(GameDataRef data);
 
 		void Init();
 
@@ -20,8 +20,8 @@ namespace PixelPanic
 	private:
 		GameDataRef _data;
 
-		sf::Clock _clock;
-
 		std::unique_ptr<sf::Sprite> _background;
+		std::unique_ptr<sf::Sprite> _title;
+		std::unique_ptr<sf::Sprite> _playButton;
 	};
 }
