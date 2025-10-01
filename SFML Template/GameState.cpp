@@ -8,7 +8,6 @@ namespace PixelPanic
 {
 	GameState::GameState(GameDataRef data) : _data(data)
 	{
-
 	}
 
 	void GameState::Init()
@@ -25,8 +24,11 @@ namespace PixelPanic
 		pipe = new Pipe(this->_data);
 		land = new Land(this->_data);
 		bird = new Bird(this->_data);
+		flash = new Flash(this->_data);
 
 		this->_background = std::make_unique<sf::Sprite>(this->_data->assets.GetTexture("Game Background"));
+
+		this->_gameState = GameStates::eReady;
 	}
 
 	void GameState::HandleInput()
@@ -40,29 +42,64 @@ namespace PixelPanic
 
 			if (this->_data->input.IsSpriteClicked(*this->_background, sf::Mouse::Button::Left, this->_data->window))
 			{
-				bird->Tap();
+				if (this->_gameState != GameStates::eGameOver)
+				{
+					this->_gameState = GameStates::ePlaying;
+
+					bird->Tap();
+				}
 			}
 		}
 	}
 
 	void GameState::Update(float dt)
 	{
-		pipe->RandomizePipeOffset();
-
-		pipe->MovePipes(dt);
-		land->MoveLand(dt);
-
-		if (clock.getElapsedTime().asSeconds() > PIPE_SPAWN_FREQUENCY)
+		if (this->_gameState != GameStates::eGameOver)
 		{
-			pipe->SpawnInvisiblePipe();
-			pipe->SpawnBottomPipe();
-			pipe->SpawnTopPipe();
-
-			clock.restart();
+			bird->Animate(dt);
+			land->MoveLand(dt);
 		}
 
-		bird->Animate(dt);
-		bird->Update(dt);
+		if (this->_gameState == GameStates::ePlaying)
+		{
+			pipe->MovePipes(dt);
+
+			if (clock.getElapsedTime().asSeconds() > PIPE_SPAWN_FREQUENCY)
+			{
+				pipe->RandomizePipeOffset();
+
+				pipe->SpawnInvisiblePipe();
+				pipe->SpawnBottomPipe();
+				pipe->SpawnTopPipe();
+
+				clock.restart();
+			}
+
+			bird->Update(dt);
+
+			std::vector<sf::Sprite> landSprites = land->GetSprites();
+			for (int i = 0; i < landSprites.size(); i++)
+			{
+				if (collision.CheckSpriteCollision(bird->GetSprite(), 0.7f, landSprites.at(i), 1.0f))
+				{
+					this->_gameState = GameStates::eGameOver;
+				}
+			}
+
+			std::vector<sf::Sprite> pipeSprites = pipe->GetSprites();
+			for (int i = 0; i < pipeSprites.size(); i++)
+			{
+				if (collision.CheckSpriteCollision(bird->GetSprite(), 0.625f, pipeSprites.at(i), 1.0f))
+				{
+					this->_gameState = GameStates::eGameOver;
+				}
+			}
+		}
+
+		if (this->_gameState == GameStates::eGameOver)
+		{
+			this->flash->Show(dt);
+		}
 	}
 
 	void GameState::Draw(float dt)
@@ -74,6 +111,7 @@ namespace PixelPanic
 		pipe->DrawPipes();
 		land->DrawLand();
 		bird->Draw();
+		flash->Draw();
 
 		this->_data->window.display();
 	}

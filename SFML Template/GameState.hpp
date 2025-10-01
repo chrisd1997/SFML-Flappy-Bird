@@ -6,6 +6,8 @@
 #include "Pipe.hpp"
 #include "Land.hpp"
 #include "Bird.hpp"
+#include "Collision.hpp"
+#include "Flash.hpp"
 
 namespace PixelPanic
 {
@@ -28,7 +30,11 @@ namespace PixelPanic
 		Pipe* pipe;
 		Land* land;
 		Bird* bird;
+		Collision collision;
+		Flash* flash;
 
 		sf::Clock clock;
+
+		int _gameState;
 	};
 }

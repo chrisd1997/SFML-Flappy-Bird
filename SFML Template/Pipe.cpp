@@ -14,7 +14,7 @@ namespace PixelPanic
 
 		sprite.setPosition({ (float)this->_data->window.getSize().x, (float)this->_data->window.getSize().y - sprite.getGlobalBounds().size.y - this->_pipeSpawnYOffset });
 
-		pipeSprites.push_back(sprite);
+		this->_pipeSprites.push_back(sprite);
 	}
 
 	void Pipe::SpawnTopPipe()
@@ -23,7 +23,7 @@ namespace PixelPanic
 
 		sprite.setPosition({ (float)this->_data->window.getSize().x, (float)-this->_pipeSpawnYOffset });
 
-		pipeSprites.push_back(sprite);
+		this->_pipeSprites.push_back(sprite);
 	}
 
 	void Pipe::SpawnInvisiblePipe()
@@ -33,36 +33,41 @@ namespace PixelPanic
 		sprite.setPosition({ (float)this->_data->window.getSize().x, (float)this->_data->window.getSize().y - sprite.getGlobalBounds().size.y });
 		sprite.setColor(sf::Color(0, 0, 0, 0));
 
-		pipeSprites.push_back(sprite);
+		this->_pipeSprites.push_back(sprite);
 	}
 
 	void Pipe::MovePipes(float dt)
 	{
-		for (unsigned short int i = 0; i < pipeSprites.size(); i++)
+		for (unsigned short int i = 0; i < this->_pipeSprites.size(); i++)
 		{
-			if (pipeSprites.at(i).getPosition().x < 0 - pipeSprites.at(i).getGlobalBounds().size.x)
+			if (this->_pipeSprites.at(i).getPosition().x < 0 - this->_pipeSprites.at(i).getGlobalBounds().size.x)
 			{
-				pipeSprites.erase(pipeSprites.begin() + i);
+				this->_pipeSprites.erase(this->_pipeSprites.begin() + i);
 			}
 			else
 			{
 				float movement = PIPE_MOVEMENT_SPEED * dt;
 
-				pipeSprites.at(i).move({ -movement, 0 });
+				this->_pipeSprites.at(i).move({ -movement, 0 });
 			}
 		}
 	}
 
 	void Pipe::DrawPipes()
 	{
-		for (unsigned short int i = 0; i < pipeSprites.size(); i++)
+		for (unsigned short int i = 0; i < this->_pipeSprites.size(); i++)
 		{
-			this->_data->window.draw(pipeSprites.at(i));
+			this->_data->window.draw(this->_pipeSprites.at(i));
 		}
 	}
 
 	void Pipe::RandomizePipeOffset()
 	{
 		this->_pipeSpawnYOffset = rand() % (_landHeight + 1);
+	}
+
+	const std::vector<sf::Sprite>& Pipe::GetSprites() const
+	{
+		return this->_pipeSprites;
 	}
 }

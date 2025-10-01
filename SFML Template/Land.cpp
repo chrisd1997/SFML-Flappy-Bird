@@ -39,4 +39,9 @@ namespace PixelPanic
 			this->_data->window.draw(this->_landSprites.at(i));
 		}
 	}
+
+	const std::vector<sf::Sprite>& Land::GetSprites() const
+	{
+		return this->_landSprites;
+	}
 }

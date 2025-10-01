@@ -19,9 +19,11 @@ namespace PixelPanic
 		void DrawPipes();
 		void RandomizePipeOffset();
 
+		const std::vector<sf::Sprite>& GetSprites() const;
+
 	private:
 		GameDataRef _data;
-		std::vector<sf::Sprite> pipeSprites;
+		std::vector<sf::Sprite> _pipeSprites;
 
 		int _landHeight;
 		int _pipeSpawnYOffset;

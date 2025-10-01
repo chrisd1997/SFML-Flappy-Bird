@@ -1,4 +1,5 @@
 #include "Bird.hpp"
+#include "Flash.hpp"
 
 namespace PixelPanic
 {
@@ -88,5 +89,10 @@ namespace PixelPanic
 	{
 		this->_movementClock.restart();
 		this->_birdState = BIRD_STATE_FLYING;
+	}
+
+	const sf::Sprite& Bird::GetSprite() const
+	{
+		return *this->_birdSprite;
 	}
 }
