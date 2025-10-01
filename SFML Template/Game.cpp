@@ -1,10 +1,15 @@
 #include "Game.hpp"
 #include "SplashState.hpp"
 
+#include <stdlib.h>
+#include <time.h>
+
 namespace PixelPanic
 {
 	Game::Game(int width, int height, std::string title)
 	{
+		srand(time(NULL));
+
 		this->_data->window.create(sf::VideoMode({ (unsigned int)width, (unsigned int)height }), title, sf::Style::Close | sf::Style::Titlebar);
 		this->_data->machine.AddState(StateRef(new SplashState(this->_data)));
 

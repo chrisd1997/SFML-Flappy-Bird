@@ -17,9 +17,14 @@ namespace PixelPanic
 		this->_data->assets.LoadTexture("Pipe Up", PIPE_UP_FILEPATH);
 		this->_data->assets.LoadTexture("Pipe Down", PIPE_DOWN_FILEPATH);
 		this->_data->assets.LoadTexture("Land", LAND_FILEPATH);
+		this->_data->assets.LoadTexture("Bird Frame 1", BIRD_FRAME_1_FILEPATH);
+		this->_data->assets.LoadTexture("Bird Frame 2", BIRD_FRAME_2_FILEPATH);
+		this->_data->assets.LoadTexture("Bird Frame 3", BIRD_FRAME_3_FILEPATH);
+		this->_data->assets.LoadTexture("Bird Frame 4", BIRD_FRAME_4_FILEPATH);
 
 		pipe = new Pipe(this->_data);
 		land = new Land(this->_data);
+		bird = new Bird(this->_data);
 
 		this->_background = std::make_unique<sf::Sprite>(this->_data->assets.GetTexture("Game Background"));
 	}
@@ -35,7 +40,7 @@ namespace PixelPanic
 
 			if (this->_data->input.IsSpriteClicked(*this->_background, sf::Mouse::Button::Left, this->_data->window))
 			{
-
+				bird->Tap();
 			}
 		}
 	}
@@ -55,6 +60,9 @@ namespace PixelPanic
 
 			clock.restart();
 		}
+
+		bird->Animate(dt);
+		bird->Update(dt);
 	}
 
 	void GameState::Draw(float dt)
@@ -65,6 +73,7 @@ namespace PixelPanic
 
 		pipe->DrawPipes();
 		land->DrawLand();
+		bird->Draw();
 
 		this->_data->window.display();
 	}
