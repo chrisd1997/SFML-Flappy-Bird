@@ -135,8 +135,10 @@
     <ClCompile Include="GameOverState.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Land.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="Pipe.cpp" />
     <ClCompile Include="SplashState.cpp" />
     <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
@@ -147,7 +149,9 @@
     <ClInclude Include="GameOverState.hpp" />
     <ClInclude Include="GameState.hpp" />
     <ClInclude Include="InputManager.hpp" />
+    <ClInclude Include="Land.hpp" />
     <ClInclude Include="MainMenuState.hpp" />
+    <ClInclude Include="Pipe.hpp" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SplashState.hpp" />
     <ClInclude Include="State.hpp" />

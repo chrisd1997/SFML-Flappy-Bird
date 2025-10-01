@@ -3,6 +3,8 @@
 #include <SFML/Graphics.hpp>
 #include "State.hpp"
 #include "Game.hpp"
+#include "Pipe.hpp"
+#include "Land.hpp"
 
 namespace PixelPanic
 {
@@ -21,5 +23,10 @@ namespace PixelPanic
 		GameDataRef _data;
 
 		std::unique_ptr<sf::Sprite> _background;
+
+		Pipe* pipe;
+		Land* land;
+
+		sf::Clock clock;
 	};
 }
