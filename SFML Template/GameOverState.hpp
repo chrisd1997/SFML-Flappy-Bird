@@ -9,7 +9,7 @@ namespace PixelPanic
 	class GameOverState : public State
 	{
 	public:
-		GameOverState(GameDataRef data);
+		GameOverState(GameDataRef data, unsigned int score);
 
 		void Init();
 
@@ -21,5 +21,15 @@ namespace PixelPanic
 		GameDataRef _data;
 
 		std::unique_ptr<sf::Sprite> _background;
+		std::unique_ptr<sf::Sprite> _gameOverTitle;
+		std::unique_ptr<sf::Sprite> _gameOverContainer;
+		std::unique_ptr<sf::Sprite> _retryButton;
+		std::unique_ptr<sf::Sprite> _medal;
+
+		std::unique_ptr<sf::Text> _scoreText;
+		std::unique_ptr<sf::Text> _highScoreText;
+
+		unsigned int _score;
+		unsigned int _highScore;
 	};
 }

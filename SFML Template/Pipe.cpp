@@ -36,6 +36,16 @@ namespace PixelPanic
 		this->_pipeSprites.push_back(sprite);
 	}
 
+	void Pipe::SpawnScoringPipe()
+	{
+		sf::Sprite sprite(this->_data->assets.GetTexture("Scoring Pipe"));
+
+		sprite.setPosition({ (float)this->_data->window.getSize().x, 0 });
+		sprite.setColor(sf::Color(0, 0, 0, 0));
+
+		this->_scoringPipes.push_back(sprite);
+	}
+
 	void Pipe::MovePipes(float dt)
 	{
 		for (unsigned short int i = 0; i < this->_pipeSprites.size(); i++)
@@ -49,6 +59,20 @@ namespace PixelPanic
 				float movement = PIPE_MOVEMENT_SPEED * dt;
 
 				this->_pipeSprites.at(i).move({ -movement, 0 });
+			}
+		}
+
+		for (unsigned short int i = 0; i < this->_scoringPipes.size(); i++)
+		{
+			if (this->_scoringPipes.at(i).getPosition().x < 0 - this->_scoringPipes.at(i).getGlobalBounds().size.x)
+			{
+				this->_scoringPipes.erase(this->_scoringPipes.begin() + i);
+			}
+			else
+			{
+				float movement = PIPE_MOVEMENT_SPEED * dt;
+
+				this->_scoringPipes.at(i).move({ -movement, 0 });
 			}
 		}
 	}
@@ -69,5 +93,10 @@ namespace PixelPanic
 	const std::vector<sf::Sprite>& Pipe::GetSprites() const
 	{
 		return this->_pipeSprites;
+	}
+
+	std::vector<sf::Sprite>& Pipe::GetScoringSprites()
+	{
+		return this->_scoringPipes;
 	}
 }
