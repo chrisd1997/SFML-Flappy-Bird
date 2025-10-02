@@ -5,36 +5,59 @@
 
 #define SPLASH_STATE_SHOW_TIME 3.0
 
+#define GAME_TITLE "Flappy Bird"
+
 #define SPLASH_SCENE_BACKGROUND_FILEPATH "Resources/res/Splash Background.png"
+#define SPLASH_SCENE_BACKGROUND_NAME "Splash State Background"
 #define MAIN_MENU_BACKGROUND_FILEPATH "Resources/res/sky.png"
+#define MAIN_MENU_BACKGROUND_NAME "Main Menu Background"
 #define GAME_BACKGROUND_FILEPATH "Resources/res/sky.png"
+#define GAME_BACKGROUND_NAME "Game Background"
 #define GAME_OVER_BACKGROUND_FILEPATH "Resources/res/sky.png"
+#define GAME_OVER_BACKGROUND_NAME "Game Over Background"
 
 #define GAME_TITLE_FILEPATH "Resources/res/title.png"
+#define GAME_TITLE_NAME "Game Title"
 #define PLAY_BUTTON_FILEPATH "Resources/res/PlayButton.png"
+#define PLAY_BUTTON_NAME "Play Button"
 
 #define PIPE_UP_FILEPATH "Resources/res/PipeUp.png"
+#define PIPE_UP_NAME "Pipe Up"
 #define PIPE_DOWN_FILEPATH "Resources/res/PipeDown.png"
+#define PIPE_DOWN_NAME "Pipe Down"
 #define SCORING_PIPE_FILEPATH "Resources/res/InvisibleScoringPipe.png"
+#define SCORING_PIPE_NAME "Scoring Pipe"
 
 #define LAND_FILEPATH "Resources/res/Land.png"
+#define LAND_NAME "Land"
 
 #define BIRD_FRAME_1_FILEPATH "Resources/res/bird-01.png"
+#define BIRD_FRAME_1_NAME "Bird Frame 1"
 #define BIRD_FRAME_2_FILEPATH "Resources/res/bird-02.png"
+#define BIRD_FRAME_2_NAME "Bird Frame 2"
 #define BIRD_FRAME_3_FILEPATH "Resources/res/bird-03.png"
+#define BIRD_FRAME_3_NAME "Bird Frame 3"
 #define BIRD_FRAME_4_FILEPATH "Resources/res/bird-04.png"
+#define BIRD_FRAME_4_NAME "Bird Frame 4"
 
 #define FLAPPY_FONT_FILEPATH "Resources/fonts/FlappyFont.ttf"
+#define FLAPPY_FONT_NAME "Flappy Font"
 
 #define GAME_OVER_TITLE_FILEPATH "Resources/res/Game-Over-Title.png"
+#define GAME_OVER_TITLE_NAME "Game Over Title"
 #define GAME_OVER_BODY_FILEPATH "Resources/res/Game-Over-Body.png"
+#define GAME_OVER_BODY_NAME "Game Over Body"
 
 #define HIGHSCORE_FILEPATH "Resources/highscore.txt"
 
 #define BRONZE_MEDAL_FILEPATH "Resources/res/Bronze-Medal.png"
+#define BRONZE_MEDAL_NAME "Bronze Medal"
 #define SILVER_MEDAL_FILEPATH "Resources/res/Silver-Medal.png"
+#define SILVER_MEDAL_NAME "Silver Medal"
 #define GOLD_MEDAL_FILEPATH "Resources/res/Gold-Medal.png"
+#define GOLD_MEDAL_NAME "Gold Medal"
 #define PLATINUM_MEDAL_FILEPATH "Resources/res/Platinum-Medal.png"
+#define PLATINUM_MEDAL_NAME "Platinum Medal"
 
 #define HIT_SOUND_FILEPATH "Resources/audio/Hit.wav"
 #define POINT_SOUND_FILEPATH "Resources/audio/Point.wav"

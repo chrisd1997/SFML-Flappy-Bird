@@ -14,13 +14,13 @@ namespace PixelPanic
 
 	void MainMenuState::Init()
 	{
-		this->_data->assets.LoadTexture("Main Menu Background", MAIN_MENU_BACKGROUND_FILEPATH);
-		this->_data->assets.LoadTexture("Game Title", GAME_TITLE_FILEPATH);
-		this->_data->assets.LoadTexture("Play Button", PLAY_BUTTON_FILEPATH);
+		this->_data->assets.LoadTexture(MAIN_MENU_BACKGROUND_NAME, MAIN_MENU_BACKGROUND_FILEPATH);
+		this->_data->assets.LoadTexture(GAME_TITLE_NAME, GAME_TITLE_FILEPATH);
+		this->_data->assets.LoadTexture(PLAY_BUTTON_NAME, PLAY_BUTTON_FILEPATH);
 
-		this->_background = std::make_unique<sf::Sprite>(this->_data->assets.GetTexture("Main Menu Background"));
-		this->_title = std::make_unique<sf::Sprite>(this->_data->assets.GetTexture("Game Title"));
-		this->_playButton = std::make_unique<sf::Sprite>(this->_data->assets.GetTexture("Play Button"));
+		this->_background = std::make_unique<sf::Sprite>(this->_data->assets.GetTexture(MAIN_MENU_BACKGROUND_NAME));
+		this->_title = std::make_unique<sf::Sprite>(this->_data->assets.GetTexture(GAME_TITLE_NAME));
+		this->_playButton = std::make_unique<sf::Sprite>(this->_data->assets.GetTexture(PLAY_BUTTON_NAME));
 
 		const float titlePosX = (SCREEN_WIDTH / 2) - (this->_title->getGlobalBounds().size.x / 2);
 		const float titlePosY = this->_title->getGlobalBounds().size.y / 2;

@@ -32,16 +32,16 @@ namespace PixelPanic
 		this->_wingSound = std::make_unique<sf::Sound>(this->_wingSoundBuffer);
 		this->_pointSound = std::make_unique<sf::Sound>(this->_pointSoundBuffer);
 
-		this->_data->assets.LoadTexture("Game Background", GAME_BACKGROUND_FILEPATH);
-		this->_data->assets.LoadTexture("Pipe Up", PIPE_UP_FILEPATH);
-		this->_data->assets.LoadTexture("Pipe Down", PIPE_DOWN_FILEPATH);
-		this->_data->assets.LoadTexture("Scoring Pipe", SCORING_PIPE_FILEPATH);
-		this->_data->assets.LoadTexture("Land", LAND_FILEPATH);
-		this->_data->assets.LoadTexture("Bird Frame 1", BIRD_FRAME_1_FILEPATH);
-		this->_data->assets.LoadTexture("Bird Frame 2", BIRD_FRAME_2_FILEPATH);
-		this->_data->assets.LoadTexture("Bird Frame 3", BIRD_FRAME_3_FILEPATH);
-		this->_data->assets.LoadTexture("Bird Frame 4", BIRD_FRAME_4_FILEPATH);
-		this->_data->assets.LoadFont("Flappy Font", FLAPPY_FONT_FILEPATH);
+		this->_data->assets.LoadTexture(GAME_BACKGROUND_NAME, GAME_BACKGROUND_FILEPATH);
+		this->_data->assets.LoadTexture(PIPE_UP_NAME, PIPE_UP_FILEPATH);
+		this->_data->assets.LoadTexture(PIPE_DOWN_NAME, PIPE_DOWN_FILEPATH);
+		this->_data->assets.LoadTexture(SCORING_PIPE_NAME, SCORING_PIPE_FILEPATH);
+		this->_data->assets.LoadTexture(LAND_NAME, LAND_FILEPATH);
+		this->_data->assets.LoadTexture(BIRD_FRAME_1_NAME, BIRD_FRAME_1_FILEPATH);
+		this->_data->assets.LoadTexture(BIRD_FRAME_2_NAME, BIRD_FRAME_2_FILEPATH);
+		this->_data->assets.LoadTexture(BIRD_FRAME_3_NAME, BIRD_FRAME_3_FILEPATH);
+		this->_data->assets.LoadTexture(BIRD_FRAME_4_NAME, BIRD_FRAME_4_FILEPATH);
+		this->_data->assets.LoadFont(FLAPPY_FONT_NAME, FLAPPY_FONT_FILEPATH);
 
 		pipe = new Pipe(this->_data);
 		land = new Land(this->_data);
@@ -49,7 +49,7 @@ namespace PixelPanic
 		flash = new Flash(this->_data);
 		hud = new HUD(this->_data);
 
-		this->_background = std::make_unique<sf::Sprite>(this->_data->assets.GetTexture("Game Background"));
+		this->_background = std::make_unique<sf::Sprite>(this->_data->assets.GetTexture(GAME_BACKGROUND_NAME));
 
 		this->_score = 0;
 

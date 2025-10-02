@@ -4,13 +4,13 @@ namespace PixelPanic
 {
 	Pipe::Pipe(GameDataRef data) : _data(data)
 	{
-		this->_landHeight = this->_data->assets.GetTexture("Land").getSize().y;
+		this->_landHeight = this->_data->assets.GetTexture(LAND_NAME).getSize().y;
 		this->_pipeSpawnYOffset = 0;
 	}
 
 	void Pipe::SpawnBottomPipe()
 	{
-		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Up"));
+		sf::Sprite sprite(this->_data->assets.GetTexture(PIPE_UP_NAME));
 
 		sprite.setPosition({ (float)this->_data->window.getSize().x, (float)this->_data->window.getSize().y - sprite.getGlobalBounds().size.y - this->_pipeSpawnYOffset });
 
@@ -19,7 +19,7 @@ namespace PixelPanic
 
 	void Pipe::SpawnTopPipe()
 	{
-		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Down"));
+		sf::Sprite sprite(this->_data->assets.GetTexture(PIPE_DOWN_NAME));
 
 		sprite.setPosition({ (float)this->_data->window.getSize().x, (float)-this->_pipeSpawnYOffset });
 
@@ -28,7 +28,7 @@ namespace PixelPanic
 
 	void Pipe::SpawnInvisiblePipe()
 	{
-		sf::Sprite sprite(this->_data->assets.GetTexture("Pipe Up"));
+		sf::Sprite sprite(this->_data->assets.GetTexture(PIPE_UP_NAME));
 
 		sprite.setPosition({ (float)this->_data->window.getSize().x, (float)this->_data->window.getSize().y - sprite.getGlobalBounds().size.y });
 		sprite.setColor(sf::Color(0, 0, 0, 0));
@@ -38,7 +38,7 @@ namespace PixelPanic
 
 	void Pipe::SpawnScoringPipe()
 	{
-		sf::Sprite sprite(this->_data->assets.GetTexture("Scoring Pipe"));
+		sf::Sprite sprite(this->_data->assets.GetTexture(SCORING_PIPE_NAME));
 
 		sprite.setPosition({ (float)this->_data->window.getSize().x, 0 });
 		sprite.setColor(sf::Color(0, 0, 0, 0));

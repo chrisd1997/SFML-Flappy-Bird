@@ -14,9 +14,9 @@ namespace PixelPanic
 
 	void SplashState::Init()
 	{
-		this->_data->assets.LoadTexture("Splash State Background", SPLASH_SCENE_BACKGROUND_FILEPATH);
+		this->_data->assets.LoadTexture(SPLASH_SCENE_BACKGROUND_NAME, SPLASH_SCENE_BACKGROUND_FILEPATH);
 
-		this->_background = std::make_unique<sf::Sprite>(this->_data->assets.GetTexture("Splash State Background"));
+		this->_background = std::make_unique<sf::Sprite>(this->_data->assets.GetTexture(SPLASH_SCENE_BACKGROUND_NAME));
 	}
 
 	void SplashState::HandleInput()

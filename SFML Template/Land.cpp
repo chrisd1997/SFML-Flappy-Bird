@@ -5,8 +5,8 @@ namespace PixelPanic
 {
 	Land::Land(GameDataRef data) : _data(data)
 	{
-		sf::Sprite sprite(this->_data->assets.GetTexture("Land"));
-		sf::Sprite sprite2(this->_data->assets.GetTexture("Land"));
+		sf::Sprite sprite(this->_data->assets.GetTexture(LAND_NAME));
+		sf::Sprite sprite2(this->_data->assets.GetTexture(LAND_NAME));
 
 		sprite.setPosition({ 0.0f, (float)this->_data->window.getSize().y - (float)sprite.getGlobalBounds().size.y });
 		sprite2.setPosition({ (float)sprite.getGlobalBounds().size.x , (float)this->_data->window.getSize().y - (float)sprite.getGlobalBounds().size.y });

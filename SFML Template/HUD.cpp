@@ -4,7 +4,7 @@ namespace PixelPanic
 {
 	HUD::HUD(GameDataRef data) : _data(data)
 	{
-		this->_scoreText = std::make_unique<sf::Text>(this->_data->assets.GetFont("Flappy Font"));
+		this->_scoreText = std::make_unique<sf::Text>(this->_data->assets.GetFont(FLAPPY_FONT_NAME));
 		this->_scoreText->setString("0");
 		this->_scoreText->setCharacterSize(128);
 		this->_scoreText->setFillColor(sf::Color::White);

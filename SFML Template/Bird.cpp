@@ -7,10 +7,10 @@ namespace PixelPanic
 	{
 		this->_animationIterator = 0;
 
-		this->_animationFrames.push_back(this->_data->assets.GetTexture("Bird Frame 1"));
-		this->_animationFrames.push_back(this->_data->assets.GetTexture("Bird Frame 2"));
-		this->_animationFrames.push_back(this->_data->assets.GetTexture("Bird Frame 3"));
-		this->_animationFrames.push_back(this->_data->assets.GetTexture("Bird Frame 4"));
+		this->_animationFrames.push_back(this->_data->assets.GetTexture(BIRD_FRAME_1_NAME));
+		this->_animationFrames.push_back(this->_data->assets.GetTexture(BIRD_FRAME_2_NAME));
+		this->_animationFrames.push_back(this->_data->assets.GetTexture(BIRD_FRAME_3_NAME));
+		this->_animationFrames.push_back(this->_data->assets.GetTexture(BIRD_FRAME_4_NAME));
 
 		this->_birdSprite = std::make_unique<sf::Sprite>(this->_animationFrames.at(this->_animationIterator));
 
